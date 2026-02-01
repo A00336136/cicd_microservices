@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent coordinates -->
+    <groupId>com.nutritrack</groupId>
+    <artifactId>cicd_microservices</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>cicd_microservices</name>
+    <description>NutriTrack CI/CD Microservices Parent Project</description>
+
+    <!-- Java & Spring versions -->
+    <properties>
+        <java.version>17</java.version>
+        <!-- Match the Spring Boot version you chose in Spring Initializr -->
+        <spring.boot.version>4.0.2</spring.boot.version>
+        <!-- A compatible Spring Cloud release train -->
+        <spring.cloud.version>2023.0.3</spring.cloud.version>
+    </properties>
+
+    <!-- Declare all child modules here -->
+    <modules>
+        <module>config-service</module>
+        <module>discovery-service</module>
+        <module>api-gateway</module>
+        <module>lifestyle-service</module>
+        <module>nutrition-service</module>
+    </modules>
+
+    <!-- Dependency Management (BOMs) -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Spring Boot BOM -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud BOM -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Build configuration common to all modules -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
+
