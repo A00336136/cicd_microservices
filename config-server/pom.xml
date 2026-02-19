@@ -11,13 +11,13 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>discovery-service</artifactId>
-    <name>Discovery Service</name>
+    <artifactId>config-server</artifactId>
+    <name>Config Server</name>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
